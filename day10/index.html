@@ -1,0 +1,62 @@
+<html>
+<head>
+
+</head>
+  <body ng-app="MyApp">
+
+    <div ng-controller="MyController as my">
+      <br/> 1 + 1 =  {{1+1}}
+
+      <div >
+        city[0] = {{my.cities[0]}}
+      </div>
+      <div >
+        Hobby = {{my.hobby.name}}
+      </div>
+      <div >
+        a.b.c = {{my.a.b.c}}
+      </div>
+      <div>
+        {{my.hobby.lang === 'Java' ? 'Java' : 'Android'}}
+      </div>
+      <div>
+        <input type="button" value="Okay" ng-click="my.click($event)">
+        Event Val - {{$event}}
+      </div>
+      <div >
+        Event Ctrl Val - {{my.ev | json}}
+      </div>
+
+      <div >
+        One shot - {{::my.cnt}}
+      </div>
+      <div >
+        Normal - {{my.cnt}}
+      </div>
+      <div >
+        <input type="button" value="Change Count" ng-click="my.change()"/>
+      </div>
+      <div>
+        <img ng-src="{{my.imgVal}}" alt="image" width="300" height="300" />
+      </div>
+      <div>
+        <input type="button" value="Hulk" ng-click="my.image('hulk')"/>
+        <input type="button" value="Thor" ng-click="my.image('thor')"/>
+        <input type="button" value="Iron Man" ng-click="my.image('iron')"/>
+      </div>
+
+      <div >
+        <input type="checkbox" value="India" ng-model="my.isIndian"/>
+        <input type="button" value="Okay" ng-disabled="my.isIndian">
+      </div>
+
+      <div >
+        <svg>
+          <circle ng-attr-cx="10" ng-attr-cy="10" ng-attr-rad="100"></circle>
+        </svg>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="app.js" charset="utf-8"></script>
+  </body>
+</html>
