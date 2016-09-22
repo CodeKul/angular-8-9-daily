@@ -1,0 +1,43 @@
+<html>
+<head>
+
+</head>
+<body ng-app="MyApp">
+  <div ng-controller="MyController as my">
+    <div >
+      <input type="text" ng-model="my.indianRupee"/>
+    </div>
+    <div >
+        {{my.indianRupee | currency :"&#8377;"}}
+    </div>
+    <div >
+      <input type="text" ng-model="my.data"/>
+      {{my.data}}
+
+      <div >
+        <input type="text" ng-model="my.filterChar"/>
+        <ul>
+          <li ng-repeat="system in my.systems | myOs:my.filterChar">{{system}}</li>
+        </ul>
+      </div>
+
+      <div >
+        <ul>
+          <li ng-repeat="system in my.filtered">{{system}}</li>
+        </ul>
+      </div>
+
+      <div >
+        <ul>
+          <li ng-repeat="system in my.systems | stateFul">{{system}}</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+  <script src="app.js" charset="utf-8"></script>
+  <script src="filter.js" charset="utf-8"></script>
+  <script src="filtDep.js" charset="utf-8"></script>
+</body>
+</html>
