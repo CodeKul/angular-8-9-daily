@@ -1,0 +1,36 @@
+<html>
+<head>
+
+</head>
+<body ng-app="MyApp">
+  <div ng-controller="MyController as my">
+    Hello <input ng-model="my.name">
+   <span ng-bind="my.name"></span> <br/>
+   <span ng:bind="my.name"></span> <br/>
+   <span ng_bind="my.name"></span> <br/>
+   <span data-ng-bind="my.name"></span> <br/>
+   <span x-ng-bind="my.name"></span> <br/>
+
+    <div my-dir>
+    </div>
+
+    <div my-dir>
+    </div>
+
+
+    <div my-other-dir>
+    </div>
+
+<br/> it should load my-one-dir
+    <div my-one-dir tnm = "my-one-dir">
+    </div>
+
+<br/> it should load my-other-dir
+    <div my-one-dir tnm = "my-other-dir">
+    </div>
+
+  </div>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+ <script src="app.js" charset="utf-8"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<html>
+<head>
+  <style type="text/css">
+    .css-form input.ng-invalid.ng-touched {
+      background-color: #FA787E;
+    }
+
+    .css-form input.ng-valid.ng-touched {
+      background-color: #78FA89;
+    }
+  </style>
+</head>
+<body ng-app="MyApp">
+  <div ng-controller="MyController as my">
+    <form name="form" class="simple-form" novalidate>
+      <div >
+        <input type="text" ng-model="my.user.name" name="uName" required/>
+        <div ng-show="form.$submitted || form.uName.$touched">
+          <div ng-show="form.uName.$error.required">Tell us your name.</div>
+        </div>
+      </div>
+      <div >
+        <input type="email" ng-model="my.user.email" name="email" required/>
+        <div ng-show="form.$submitted || form.email.$touched">
+          <div ng-show="form.email.$error.required">Tell us your email</div>
+          <div ng-show="form.email.$error.email">Invalid Email ..</div>
+        </div>
+      </div>
+
+      <div>
+          <input type="mobile" ng-model="my.user.mobile" name="mobile" required ng-pattern="my.pattern"/>
+          <div ng-show="form.$submitted || form.mobile.$touched">
+            <div ng-show="form.mobile.$error.required">Tell us your mobile</div>
+            <div ng-show="form.mobile.$error.pattern">Invalid Mobile ..</div>
+          </div>
+      </div>
+      <div>
+        <input type="submit" value="Okay"/>
+      </div>
+      <div>
+        <input type="checkbox" ng-model="my.val"/>
+      </div>
+      <div ng-if="my.val">
+        <h1>Welcome</h1>
+        <p>Welcome to my home.</p>
+      </div>
+
+      <div >
+        <input type="text" ng-model="my.yourName" ng-model-options ="{updateOn : 'mousedown blur' }"/>
+        {{my.yourName}}
+      </div>
+
+      <div >
+        <input type="text" ng-model="my.companyName" ng-model-options ="{updateOn : 'mousedown blur', debounce : { blur: 500, mousedown : 1000 } }"/>
+        {{my.companyName}}
+      </div>
+
+      <div >
+        <input type="text" ng-model="my.domainName" ng-model-options ="{debounce : 1000}"/>
+        {{my.domainName}}
+      </div>
+    </form>
+  </div>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+ <script src="app.js" charset="utf-8"></script>
+</body>
+</html>
